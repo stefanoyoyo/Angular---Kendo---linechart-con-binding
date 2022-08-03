@@ -14,10 +14,10 @@ interface Sample {
         <kendo-chart>
           <kendo-chart-series>
             <kendo-chart-series-item
-                *ngFor="let item of series"
-                [data]="item.items" 
+                *ngFor="let serie of series"
+                [data]="serie.items" 
                 [markers]="{ visible: false }"
-                [name]="item.value + ' ciao'"   
+                [name]="serie.value + ' ciao'"   
                 field="yvalue"                                                                     
                 categoryField="interval"
                 type="line">
@@ -27,8 +27,8 @@ interface Sample {
     `
 })
 /**
- *  [data]="item.items"             // variabile da cui prendere la serie
-    [name]="item.value + ' ciao'"   // Nome della linea nella legenda  
+ *  [data]="serie.items"            // variabile (array) da cui prendere la serie
+    [name]="serie.value + ' ciao'"  // Nome della linea nella legenda  
     field="yvalue"                  // Valore asse Y          
     categoryField="interval"        // Valore asse X
     type="line"
