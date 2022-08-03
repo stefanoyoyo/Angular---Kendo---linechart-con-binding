@@ -8,6 +8,12 @@ interface Sample {
     yvalue: number;
 }
 
+interface Sample2 {
+    interval: Date;
+    service: string;
+    yvalue: number;
+}
+
 @Component({
     selector: 'my-app',
     template: `
@@ -24,6 +30,22 @@ interface Sample {
             </kendo-chart-series-item>
           </kendo-chart-series>
         </kendo-chart>
+
+        ---GRAFICO 2---
+
+        <kendo-chart>
+        <kendo-chart-series>
+          <kendo-chart-series-item
+              *ngFor="let serie of series2"
+              [data]="serie.items" 
+              [markers]="{ visible: false }"
+              [name]="serie.value + ' ciao'"   
+              field="yvalue"                                                                     
+              categoryField="interval"
+              type="line">
+          </kendo-chart-series-item>
+        </kendo-chart-series>
+      </kendo-chart>
     `
 })
 /**
@@ -50,10 +72,26 @@ export class AppComponent {
         interval: 3, service: 'Service 2', yvalue: 0
     }];
 
+    public data2: Sample2[] = [{
+        interval: new Date(2018, 11, 1), service: 'Service 1', yvalue: 0
+    }, {
+        interval: new Date(2018, 11, 2), service: 'Service 1', yvalue: 1
+    }, {
+        interval: new Date(2018, 11, 3), service: 'Service 1', yvalue: 2
+    }, {
+        interval: new Date(2018, 11, 4), service: 'Service 2', yvalue: 3
+    }, {
+        interval: new Date(2018, 11, 5), service: 'Service 2', yvalue: 4
+    }, {
+        interval: new Date(2018, 11, 6), service: 'Service 2', yvalue: 5
+    }];
+
     public series: GroupResult[];
+    public series2: GroupResult[];
 
     constructor() {
         this.series = groupBy(this.data, [{ field: 'service' }]) as GroupResult[];
+        this.series2 = groupBy(this.data2, [{ field: 'service' }]) as GroupResult[];
 
         // Inspect the resulting data structure in the console
         console.log(JSON.stringify(this.series, null, 4));
