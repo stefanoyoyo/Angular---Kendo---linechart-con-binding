@@ -17,6 +17,9 @@ interface Sample2 {
 @Component({
     selector: 'my-app',
     template: `
+    
+    ---GRAFICO 1---
+
         <kendo-chart>
           <kendo-chart-series>
             <kendo-chart-series-item
