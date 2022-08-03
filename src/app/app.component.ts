@@ -84,9 +84,9 @@ export class AppComponent {
     }, {
         interval: new Date(2018, 11, 4), service: 'Service 2', yvalue: 3
     }, {
-        interval: new Date(2018, 11, 5), service: 'Service 2', yvalue: 4
+        interval: new Date(2018, 11, 5), service: 'Service 2', yvalue: 2
     }, {
-        interval: new Date(2018, 11, 6), service: 'Service 2', yvalue: 5
+        interval: new Date(2018, 11, 6), service: 'Service 2', yvalue: 1
     }];
 
     public series: GroupResult[];
